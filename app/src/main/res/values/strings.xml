@@ -1,0 +1,90 @@
+<!DOCTYPE resources [
+    <!ENTITY number_of_questions "2">
+    ]>
+
+    <resources>
+
+        <!--Number of Questions-->
+        <string name="total_questions">&number_of_questions;</string>
+
+    <!--App Welcome Screen-->
+
+    <string name="app_name">Who Said It</string>
+    <string name="welcome">Welcome to \'Who Said It?\' the quiz where you try to guess whether the quote provided is from Hillary Clinton or Donald Trump.</string>
+    <string name="amount_questions">The quiz will have &number_of_questions; questions!</string>
+    <string name="start_button">Let\'s get started</string>
+    <string name="disclaimer">*The quiz may be timed!</string>
+
+    <!--Quiz Screen-->
+    <string name="quiz_which_question">1/&number_of_questions;</string>
+    <string name="submit_button">Check Answer</string>
+    <string name="submit_button_next">Next Question</string>
+    <string name="answer_result_correct">That is correct!</string>
+    <string name="answer_result_incorrect">That is INCORRECT!</string>
+
+    <!--Quiz Info-->
+    <string name="option1">Hillary Clinton</string>
+    <string name="option2">Donald Trump</string>
+
+
+    <string name="q1">We also have to make the economy fairer. That starts with raising the national minimum wage and also guarantee, finally, equal pay for women\'s work</string>
+    <string name="a1">Hillary Clinton</string>
+
+    <string name="q2">Under my plan, I\'ll be reducing taxes tremendously, from 35 percent to 15 percent for companies, small and big businesses</string>
+    <string name="a2">Donald Trump</string>
+
+    <string name="q3">Independent experts have looked at what I\'ve proposed and looked at what Donald\'s proposed, and basically they\'ve said this, that if his tax plan, which would blow up the debt by over $5 trillion and would in some instances disadvantage middle-class families compared to the wealthy, were to go into effect, we would lose 3.5 million jobs and maybe have another recession</string>
+    <string name="a3">Hillary Clinton</string>
+
+    <string name="q4">And what you do is you say, fine, you want to go to Mexico or some other country, good luck...We wish you a lot of luck. But if you think you\'re going to make your air conditioners or your cars or your cookies or whatever you make and bring them into our country without a tax, you're wrong.</string>
+    <string name="a4">Donald Trump</string>
+
+    <string name="q5">In fact, Donald was one of the people who rooted for the housing crisis. He said, back in 2006, ‘Gee, I hope it does collapse, because then I can go in and buy some and make some money. Well, it did collapse</string>
+    <string name="a5">Hillary Clinton</string>
+
+    <string name="q6">I\'m going to cut regulations...I\'m going to cut taxes big league, and you\'re going to raise taxes big league, end of story.</string>
+    <string name="a6">Donald Trump</string>
+
+    <string name="q7">Donald thinks that climate change is a hoax perpetrated by the Chinese...I think it\'s real.</string>
+    <string name="a7">Hillary Clinton</string>
+
+    <string name="q8">Well, I\'m really calling for major jobs, because the wealthy are going [to] create tremendous jobs...They\'re going to expand their companies. They're going to do a tremendous job.</string>
+    <string name="a8">Donald Trump</string>
+
+    <string name="q9">So we have a very robust set of plans...And people have looked at both of our plans, have concluded that mine would create 10 million jobs and yours would lose us 3.5 million jobs, and explode the debt which would have a recession.</string>
+    <string name="a9">Donald Trump</string>
+
+    <string name="q10">We invested in a solar company, our country...That was a disaster. They lost plenty of money on that one.</string>
+    <string name="a10">Donald Trump</string>
+
+    <string name="q11">Mental health is one of the biggest concerns, because now police are having to handle a lot of really difficult mental health problems on the street...They want support, they want more training, they want more assistance. And I think the federal government could be in a position where we would offer and provide that.</string>
+    <string name="a11">Hillary Clinton</string>
+
+    <string name="q12">As far as my tax returns, you don\'t learn that much from tax returns...That I can tell you. You learn a lot from financial disclosure[s].</string>
+    <string name="a12">Donald Trump</string>
+
+    <string name="q13">What I have proposed would be paid for by raising taxes on the wealthy, because they have made all the gains in the economy...And I think it\'s time that the wealthy and corporations paid their fair share to support this country.</string>
+    <string name="a13">Hillary Clinton</string>
+
+    <string name="q14">We have to renegotiate our trade deals, and we have to stop these countries from stealing our companies and our jobs</string>
+    <string name="a14">Donald Trump</string>
+
+    <string name="q15">But when I look at what you have proposed, you have what is called now the \'Trump Loophole\' because it would so advantage you and the business you do</string>
+    <string name="a15">Hillary Clinton</string>
+
+    <string name="q16">We came in with the internet, we came up with the internet, and I think Secretary Clinton and myself would agree very much, when you look at what ISIS is doing with the internet, they\'re beating us at our own game</string>
+    <string name="a16">Donald Trump</string>
+
+    <string name="q17">But we also have to intensify our air strikes against ISIS and eventually support our Arab and Kurdish partners to be able to actually take out ISIS in Raqqa, end their claim of being a Caliphate</string>
+    <string name="a17">Hillary Clinton</string>
+
+    <string name="q18">Number one, the 28 countries of NATO, many of them aren\'t paying their fair share ... we\'re defending them, and they should at least be paying us what they're supposed to be paying by treaty and contract.</string>
+    <string name="a18">Donald Trump</string>
+
+    <string name="q19">And, indeed, I have met a lot of the people who were stiffed by you and your businesses, Donald...I\'ve met dishwashers, painters, architects, glass installers, marble installers, drapery installers, like my dad was, who you refused to pay when they finished the work that you asked them to do.</string>
+    <string name="a19">Hillary Clinton</string>
+
+    <string name="q20">Well, President Obama and Secretary Clinton created a vacuum the way they got out of Iraq, because they got out — what, they shouldn\'t have been in, but once they got in, the way they got out was a disaster,</string>
+    <string name="a20">Donald Trump</string>
+
+</resources>

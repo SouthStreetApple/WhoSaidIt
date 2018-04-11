@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/quiz_layout">
+
+    <TextView
+        android:id="@+id/quiz_quote"
+        android:padding="18dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:hint= "This is some sample text to represent a quote that will display about the candidate. Good luck!"
+        android:text=""
+        />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <RadioGroup
+                android:id="@+id/possible_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                >
+                <RadioButton
+                    android:id="@+id/option1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Hillary Clinton"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    />
+                <RadioButton
+                    android:id="@+id/option2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Donald Trump"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </RadioGroup>
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/question_count"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/quiz_which_question"
+        />
+
+    <Button
+        android:id="@+id/check_button"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:hint="SUBMIT"
+        android:text="@string/submit_button"
+        android:onClick="nextQuestion"
+        />
+
+        <TextView
+        android:id="@+id/answer_result"
+        android:padding="18dp"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text=""
+        android:layout_alignParentBottom="true"
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".5"
+
+                    android:scaleType="centerInside"
+                    android:layout_gravity="fill_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:src="@drawable/combined"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="fill_vertical"
+                    />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

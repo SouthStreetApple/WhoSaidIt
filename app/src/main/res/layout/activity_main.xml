@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main_layout"
+>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/welcome_layout">
+
+    <TextView
+        android:padding="18dp"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/welcome"
+        />
+
+    <TextView
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/amount_questions"
+        />
+
+    <EditText
+        android:id="@+id/name_input"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text=""
+        android:hint="Enter Your Name Here"
+        android:imeOptions="actionDone"
+        android:maxLines="1"
+        android:inputType="text"
+        />
+
+    <Button
+        android:id="@+id/start_quiz"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="@string/start_button"
+        android:onClick="startQuiz"
+        />
+
+    <TextView
+        android:padding="18dp"
+        android:textSize="12sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/disclaimer"
+        android:layout_alignParentBottom="true"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+                android:scaleType="centerInside"
+                android:layout_gravity="fill_vertical"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:src="@drawable/combined"
+                android:scaleType="centerCrop"
+                android:layout_gravity="fill_vertical"
+                />
+
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
