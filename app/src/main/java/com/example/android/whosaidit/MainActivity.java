@@ -7,8 +7,11 @@ import android.icu.util.DateInterval;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -122,15 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          *
-         * Load the first question and possible answers into the available TextViews/OptionBoxes, make this a loop waiting on user input...OR
-         * Perhaps set the first question and then after each time the user clicks next an index is incremented and the next question
-         * answer set is loaded?
-         *
-         * Once we are on the last question the button changes to 'GRADE!"
-         * Then we present the scores!!
-         *
-         * Questions and variables are now loaded into the arrays.
-         * Now we display the first question.
+         * Load the first question and possible answers into the available TextViews/OptionBoxes
          *
          */
         setQuestion(0);
@@ -148,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setQuestion(int i){
-        //Set variables
+        //Sets the next question, changes interface and sets appropriate variables.
         currentQuestion = questions[i].question;
         currentAnswer = questions[i].answer;
         questionIndex = i;
@@ -156,8 +151,6 @@ public class MainActivity extends AppCompatActivity {
         TextView t = (TextView) findViewById(R.id.quiz_quote);
         t.setText("''" +  currentQuestion  + "''");
         //Change answer options
-        //android:id="@+id/option1"
-        //android:id="@+id/option2"
         RadioButton option1 = (RadioButton) findViewById(R.id.option1);
         RadioButton option2 = (RadioButton) findViewById(R.id.option2);
         option1.setText(getString(R.string.option1).toString());
@@ -205,11 +198,8 @@ public class MainActivity extends AppCompatActivity {
             //Check to see if we have done our last question.
             if ((questionIndex+1) >= numberOfQuestions) {
                 //No more questions, let's grade this!
-                Log.e("STATE","No mroe questions");
-                //Have another view or just display on this view?
-
-
-
+                Log.e("STATE","No more questions");
+                displayResult();
             } else {
                 //Let's load the next question.
                 //Maybe have some kind of fade out fade in here?
@@ -231,6 +221,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void displayResult(){
+        //Have another view or just display on this view?
+        String resultText = "You finished! You scored " + ((questionsCorrect/numberOfQuestions)*100) + "% Congratulations!";
+        Toast resultToast = Toast.makeText(this,resultText,Toast.LENGTH_LONG);
+        resultToast.show();
     }
 
     private void loadQuestions(){
