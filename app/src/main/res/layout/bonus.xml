@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/bonus_layout"
+        >
+
+    <TextView
+        android:id="@+id/bonus_question_title"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:hint= ""
+        android:textAllCaps="true"
+        android:text="Bonus Round!"
+        />
+
+    <TextView
+        android:id="@+id/bonus_question_1"
+        android:padding="4dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:hint= "This is some sample text to represent a quote that will display about the candidate. Good luck!"
+        android:text="@string/bq1"
+        />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Hillary Clinton"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/boption1"
+                />
+             <CheckBox
+                 android:id="@+id/checkbox2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:hint="Donald Trump"
+                 android:layout_gravity="center"
+                 android:gravity="center"
+                 android:text="@string/boption2"
+                 />
+            <CheckBox
+                android:id="@+id/checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Ronald Reagan"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/boption3"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bonus_question_2"
+            android:padding="18dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:hint= ""
+            android:text="@string/bq2"
+            />
+        <EditText
+            android:id="@+id/bonus_answer_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="16dp"
+
+            />
+
+        <Button
+        android:id="@+id/check_button_bonus"
+        android:padding="18dp"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:hint="SUBMIT"
+        android:text="@string/submit_button"
+
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".5"
+
+                    android:scaleType="centerInside"
+                    android:layout_gravity="fill_vertical"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:src="@drawable/combined"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="fill_vertical"
+                    />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

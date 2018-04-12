@@ -1,10 +1,10 @@
 <!DOCTYPE resources [
-    <!ENTITY number_of_questions "2">
+    <!ENTITY number_of_questions "1">
     ]>
 
     <resources>
 
-        <!--Number of Questions-->
+        <!--Number of Questions - For First Round-->
         <string name="total_questions">&number_of_questions;</string>
 
     <!--App Welcome Screen-->
@@ -15,14 +15,14 @@
     <string name="start_button">Let\'s get started</string>
     <string name="disclaimer">*The quiz may be timed!</string>
 
-    <!--Quiz Screen-->
+    <!--First Round - Quiz Screen-->
     <string name="quiz_which_question">1/&number_of_questions;</string>
     <string name="submit_button">Check Answer</string>
     <string name="submit_button_next">Next Question</string>
     <string name="answer_result_correct">That is correct!</string>
     <string name="answer_result_incorrect">That is INCORRECT!</string>
 
-    <!--Quiz Info-->
+    <!--First Round - Quiz Info-->
     <string name="option1">Hillary Clinton</string>
     <string name="option2">Donald Trump</string>
 
@@ -86,5 +86,21 @@
 
     <string name="q20">Well, President Obama and Secretary Clinton created a vacuum the way they got out of Iraq, because they got out — what, they shouldn\'t have been in, but once they got in, the way they got out was a disaster,</string>
     <string name="a20">Donald Trump</string>
+
+    <!--Bonus Round Questions-->
+    <!-- bq1 bonus question 1-->
+    <string name="bq1">Who said Make America Great Again?</string>
+    <string name="boption1">Donald Trump</string>
+    <string name="boption2">Hillary Clinton</string>
+    <string name="boption3">Ronald Reagan</string>
+    <string name="boptiona1">true</string>
+    <string name="boptiona2">true</string>
+    <string name="boptiona3">true</string>
+
+    <!-- bq2 bonus question 2-->
+    <string name="bq2">Who used the term Bernie Bro\'s?</string>
+    <string name="bqa2">Hillary Clinton</string>
+
+
 
 </resources>

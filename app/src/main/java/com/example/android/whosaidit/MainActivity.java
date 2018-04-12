@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     Question questions[];
     int questionIndex;
     int questionsCorrect;
+    float firstRoundScore;
     String currentQuestion;
     String currentAnswer;
 
@@ -130,16 +131,6 @@ public class MainActivity extends AppCompatActivity {
          */
         setQuestion(0);
 
-
-
-
-        /**
-         * The below code is supposed to come at the end of the Quiz, left here to remind myself to add it back in later.
-         */
-        endTime = ZonedDateTime.now();
-        Duration duration = Duration.between(startTime, endTime);
-        t =  Toast.makeText(this, String.valueOf(duration.toMillis()),Toast.LENGTH_SHORT);
-        t.show();
     }
 
     private void setQuestion(int i){
@@ -168,7 +159,15 @@ public class MainActivity extends AppCompatActivity {
         String buttonText = checkButton.getText().toString();
         TextView answerResult = (TextView) findViewById(R.id.answer_result);
         RadioGroup possibleAnswers = (RadioGroup) findViewById(R.id.possible_answers);
+        //Check to make sure they selected an answer
+        if (possibleAnswers.getCheckedRadioButtonId() == -1)
+        {
+            // Exit this
+            return;
+        }
+        //define radiobutton
         RadioButton r;
+        //define variable to hold ID of radiobutton
         int answerID;
         answerID = possibleAnswers.getCheckedRadioButtonId();
         r = findViewById(answerID);
@@ -197,9 +196,13 @@ public class MainActivity extends AppCompatActivity {
 
             //Check to see if we have done our last question.
             if ((questionIndex+1) >= numberOfQuestions) {
-                //No more questions, let's grade this!
-                Log.e("STATE","No more questions");
-                displayResult();
+                //First Round is over
+                //Save score from first round.
+                firstRoundScore = ((float)((float)questionsCorrect/(float)numberOfQuestions)*100);
+                //Start bonus round!
+                bonusRound(view);
+
+                //displayResult(); <- This will be used at the end.
             } else {
                 //Let's load the next question.
                 //Maybe have some kind of fade out fade in here?
@@ -223,9 +226,38 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void bonusRound(View view){
+        /**
+         * This function hides the quiz layout and adds the one from the bonus
+         * quiz_layout is our quiz.xml (quiz questions).
+         * We first hide quiz so that we don't see it.
+         * main_layout is the parent View of the quiz layout, we will be adding the bonus layout from the bonus.xml layout file.
+         * The below link is where we got the cool inflate trick below which allows us to insert the layout into our main_layout
+         * https://stackoverflow.com/questions/16812276/how-to-initialize-a-ui-component-from-a-layout-file#16812431
+         */
+
+        LinearLayout quiz_layout = (LinearLayout) findViewById(R.id.quiz_layout);
+        quiz_layout.setVisibility(View.GONE);
+        LinearLayout main_layout = (LinearLayout) findViewById(R.id.main_layout);
+        LinearLayout bonus_layout = (LinearLayout)getLayoutInflater().inflate(R.layout.bonus,main_layout,true);
+        //We've now switched to the bonus screen!
+
+    }
+
+
     private void displayResult(){
-        //Have another view or just display on this view?
-        String resultText = "You finished! You scored " + ((questionsCorrect/numberOfQuestions)*100) + "% Congratulations!";
+        /*This calculates the score based on percentage the user got right divided by total number of questions
+         *then it displays in a toast the result in a nice simple message.  Also tells the user how many
+         * seconds it took!
+         *
+         * DEPRECIATED FOR NOW
+         */
+        endTime = ZonedDateTime.now();
+        Duration duration = Duration.between(startTime, endTime);
+        String seconds = String.valueOf(duration.toMillis()/1000);
+        String score = String.valueOf((float)((float)questionsCorrect/(float)numberOfQuestions)*100);
+        TextView name = (TextView) findViewById(R.id.name_input);
+        String resultText = "You finished! You scored " + score + "% in " + seconds + " seconds, congratulations " + name.getText().toString() + "!";
         Toast resultToast = Toast.makeText(this,resultText,Toast.LENGTH_LONG);
         resultToast.show();
     }
@@ -235,6 +267,9 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Special Thanks to @Neural & @BigMikeDog from the Grow with Google Scholarship Slack.
          * They were instrumental in helping me debug my array usage and getIdentifier issues.
+         * All the questions and answers are stored as strings in a resource file.  This loads them
+         * in sequence into an array with a custom type/class that will allow us to call
+         * each Question answer combination with an index of 0-numberOfQuestions
          */
 
         int x;
