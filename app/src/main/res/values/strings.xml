@@ -1,5 +1,5 @@
 <!DOCTYPE resources [
-    <!ENTITY number_of_questions "1">
+    <!ENTITY number_of_questions "20">
     ]>
     <!--You can customize the number of questions (except bonus round) by changing the value above, 1-20, or more if you added more-->
 
