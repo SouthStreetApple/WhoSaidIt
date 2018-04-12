@@ -50,7 +50,6 @@
                 android:id="@+id/checkbox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Hillary Clinton"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/boption1"
@@ -59,7 +58,6 @@
                  android:id="@+id/checkbox2"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
-                 android:hint="Donald Trump"
                  android:layout_gravity="center"
                  android:gravity="center"
                  android:text="@string/boption2"
@@ -68,7 +66,6 @@
                 android:id="@+id/checkbox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Ronald Reagan"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/boption3"
@@ -95,6 +92,9 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="24dp"
             android:layout_marginBottom="16dp"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
+            android:inputType="text"
 
             />
 
@@ -106,9 +106,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center"
-        android:hint="SUBMIT"
         android:text="@string/submit_button"
-
+        android:onClick="displayResult"
         />
 
         <LinearLayout
@@ -127,11 +126,12 @@
                     />
 
                 <ImageView
+                    android:id="@+id/image_donald_hillary"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="3"
                     android:src="@drawable/combined"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitEnd"
                     android:layout_gravity="fill_vertical"
                     />
 

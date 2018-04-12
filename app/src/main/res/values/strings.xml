@@ -1,6 +1,7 @@
 <!DOCTYPE resources [
     <!ENTITY number_of_questions "1">
     ]>
+    <!--You can customize the number of questions (except bonus round) by changing the value above, 1-20, or more if you added more-->
 
     <resources>
 
@@ -93,9 +94,10 @@
     <string name="boption1">Donald Trump</string>
     <string name="boption2">Hillary Clinton</string>
     <string name="boption3">Ronald Reagan</string>
-    <string name="boptiona1">true</string>
-    <string name="boptiona2">true</string>
-    <string name="boptiona3">true</string>
+    <bool name="boptiona1">true</bool>
+    <bool name="boptiona2">true</bool>
+    <bool name="boptiona3">true</bool>
+
 
     <!-- bq2 bonus question 2-->
     <string name="bq2">Who used the term Bernie Bro\'s?</string>

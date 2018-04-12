@@ -3,6 +3,7 @@ package com.example.android.whosaidit;
 import android.content.Context;
 import android.content.Entity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.icu.util.DateInterval;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,7 +16,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,22 +34,25 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Load some values from Strings file
      */
-
     int numberOfQuestions;
-
     /**
      * Variables that allow us to capture enter or GO in  the keyboard and a button click.
+     * Welcome Screen
      */
     EditText nameInput;
     Button startQuizButton;
-
+    /**
+     * Variables that allow us to capture enter or GO in the keyboard and a button click.
+     * Bonus Screen
+     */
+    EditText bonusQuestion2;
+    Button checkButtonBonus;
     /**
      * Variables that allow us to calculate how much time has passed.
      */
     ZonedDateTime startTime;
     ZonedDateTime endTime;
     private Question question;
-
     /**
      * Current Question and Answer Variables
      *
@@ -65,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /**
-         * Create hook for 'Enter' on name_input
+         * Create hook for 'Enter' on name_input, on welcome layout
          */
 
         nameInput = (EditText) findViewById(R.id.name_input);
@@ -80,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
        numberOfQuestions = Integer.valueOf(getString(R.string.total_questions));
        questions = new Question[numberOfQuestions];
 
     }
+
 
 
     public void startQuiz(View view){
@@ -104,12 +110,10 @@ public class MainActivity extends AppCompatActivity {
         startTime = ZonedDateTime.now();
         Toast t =  Toast.makeText(this,"GET READY!",Toast.LENGTH_SHORT);
         t.show();
-
         /**
          * Calls function that loads the questions and answers
          */
         loadQuestions();
-
         /**
          * This function hides the first linear layout and adds the one from the quiz layout
          * welcome_layout is our activity_main (the first screen you see when loading the app).
@@ -118,10 +122,10 @@ public class MainActivity extends AppCompatActivity {
          * The below link is where we got the cool inflate trick below which allows us to insert the layout into our main_layout
          * https://stackoverflow.com/questions/16812276/how-to-initialize-a-ui-component-from-a-layout-file#16812431
          */
-
         LinearLayout welcome_layout = (LinearLayout) findViewById(R.id.welcome_layout);
         welcome_layout.setVisibility(View.GONE);
         LinearLayout main_layout = (LinearLayout) findViewById(R.id.main_layout);
+        main_layout.removeAllViewsInLayout();
         LinearLayout quiz_layout = (LinearLayout)getLayoutInflater().inflate(R.layout.quiz,main_layout,true);
 
         /**
@@ -171,29 +175,24 @@ public class MainActivity extends AppCompatActivity {
         int answerID;
         answerID = possibleAnswers.getCheckedRadioButtonId();
         r = findViewById(answerID);
-
         if (buttonText == getString(R.string.submit_button)) {
             /*TextView answerResult = (TextView) findViewById(R.id.answer_result);*/
             if (r.getText() == currentAnswer){
                 //They got the answer right.
-
                 //Add 1 to questionsCorrect so we can calculate score.
                 questionsCorrect++;
                 //Show that the answer is correct!
                 answerResult.setText(getString(R.string.answer_result_correct));
                 checkButton.setText(getString(R.string.submit_button_next));
-
             } else {
                 //They got the answer wrong.
                 answerResult.setText(getString(R.string.answer_result_incorrect));
                 checkButton.setText(getString(R.string.submit_button_next));
-
             }
 
         } else {
             //The button has now changed to 'Next Question'
             //Load Next Question and answer or grade.
-
             //Check to see if we have done our last question.
             if ((questionIndex+1) >= numberOfQuestions) {
                 //First Round is over
@@ -201,8 +200,6 @@ public class MainActivity extends AppCompatActivity {
                 firstRoundScore = ((float)((float)questionsCorrect/(float)numberOfQuestions)*100);
                 //Start bonus round!
                 bonusRound(view);
-
-                //displayResult(); <- This will be used at the end.
             } else {
                 //Let's load the next question.
                 //Maybe have some kind of fade out fade in here?
@@ -220,13 +217,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-
-
-
     }
 
     private void bonusRound(View view){
+
         /**
          * This function hides the quiz layout and adds the one from the bonus
          * quiz_layout is our quiz.xml (quiz questions).
@@ -235,29 +229,65 @@ public class MainActivity extends AppCompatActivity {
          * The below link is where we got the cool inflate trick below which allows us to insert the layout into our main_layout
          * https://stackoverflow.com/questions/16812276/how-to-initialize-a-ui-component-from-a-layout-file#16812431
          */
-
-        LinearLayout quiz_layout = (LinearLayout) findViewById(R.id.quiz_layout);
-        quiz_layout.setVisibility(View.GONE);
         LinearLayout main_layout = (LinearLayout) findViewById(R.id.main_layout);
+        //If I do not removeAllViewsInLayout bonus_layout will not show, not sure why this is yet.
+        //Will explore reasons why later, for now it works and there are no errors.
+        main_layout.removeAllViewsInLayout();
         LinearLayout bonus_layout = (LinearLayout)getLayoutInflater().inflate(R.layout.bonus,main_layout,true);
+        /**
+         * Create hook for 'Enter' on bonus_answer_2, on bonus layout
+         */
+        bonusQuestion2 = (EditText) findViewById(R.id.bonus_answer_2);
+        checkButtonBonus= (Button) findViewById(R.id.check_button_bonus);
+        bonusQuestion2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    //do what you want on the press of 'done'
+                    checkButtonBonus.performClick();
+                }
+                return false;
+            }
+        });
+
         //We've now switched to the bonus screen!
 
     }
-
-
-    private void displayResult(){
-        /*This calculates the score based on percentage the user got right divided by total number of questions
+    public void displayResult(View view){
+        view.setEnabled(false);
+        /**
+         * Hide the keyboard
+         *https://stackoverflow.com/questions/1109022/close-hide-the-android-soft-keyboard
+         */
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+         /*
+         *Check answers first.
+         * Add 5 points (percentage) for each bonus question correct!
+         *
+         */
+         //Bonus Question 1
+         CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
+         CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
+         CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
+         if (checkBox1.isChecked() == getResources().getBoolean(R.bool.boptiona1) && checkBox2.isChecked() == getResources().getBoolean(R.bool.boptiona2) && checkBox3.isChecked() == getResources().getBoolean(R.bool.boptiona3)){
+             firstRoundScore = firstRoundScore +5;
+         }
+         //Bonus Question 2
+        EditText bonusAnswer2 = (EditText) findViewById(R.id.bonus_answer_2);
+        if (bonusAnswer2.getText().toString().equalsIgnoreCase(getString(R.string.bqa2).toLowerCase())) {
+            firstRoundScore = firstRoundScore +5;
+        }
+         /*This calculates the score based on percentage the user got right divided by total number of questions
          *then it displays in a toast the result in a nice simple message.  Also tells the user how many
          * seconds it took!
-         *
-         * DEPRECIATED FOR NOW
          */
         endTime = ZonedDateTime.now();
         Duration duration = Duration.between(startTime, endTime);
         String seconds = String.valueOf(duration.toMillis()/1000);
-        String score = String.valueOf((float)((float)questionsCorrect/(float)numberOfQuestions)*100);
         TextView name = (TextView) findViewById(R.id.name_input);
-        String resultText = "You finished! You scored " + score + "% in " + seconds + " seconds, congratulations " + name.getText().toString() + "!";
+        String resultText = "You finished! You scored " + firstRoundScore + "% in " + seconds + " seconds, congratulations " + nameInput.getText().toString() + "!";
         Toast resultToast = Toast.makeText(this,resultText,Toast.LENGTH_LONG);
         resultToast.show();
     }
@@ -271,7 +301,6 @@ public class MainActivity extends AppCompatActivity {
          * in sequence into an array with a custom type/class that will allow us to call
          * each Question answer combination with an index of 0-numberOfQuestions
          */
-
         int x;
         String questionID;
         String answerID;
@@ -287,8 +316,6 @@ public class MainActivity extends AppCompatActivity {
             /*Grab Question*/
             resID = getResources().getIdentifier(questionID,"string",getPackageName());
             questions[x].setQuestion(getString(resID));
-
-
             Log.e("LOADING ARRAY",questions[x].question);
             Log.e("LOADING ARRAY",questions[x].answer);
         }

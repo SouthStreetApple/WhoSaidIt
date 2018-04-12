@@ -106,11 +106,12 @@
                     />
 
                 <ImageView
+                    android:id="@+id/image_donald_hillary"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="3"
                     android:src="@drawable/combined"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitEnd"
                     android:layout_gravity="fill_vertical"
                     />
 
