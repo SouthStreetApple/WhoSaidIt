@@ -57,6 +57,9 @@
         android:layout_gravity="center"
         android:text="@string/start_button"
         android:onClick="startQuiz"
+        android:drawablePadding="10dp"
+        android:drawableLeft="@drawable/hillary_layer"
+        android:drawableRight="@drawable/trump_layer"
         />
 
     <TextView
@@ -84,14 +87,14 @@
                 android:layout_gravity="fill_vertical"
                 />
 
-        <ImageView
+        <!--ImageView
             android:id="@+id/image_donald_hillary"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_gravity="fill_vertical"
             android:layout_weight="3"
-            android:scaleType="fitEnd"
-            android:src="@drawable/combined" />
+            android:scaleType="fitXY"
+            android:src="@drawable/combined" /-->
 
     </LinearLayout>
 </LinearLayout>

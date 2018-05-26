@@ -1,0 +1,11 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!--https://developer.android.com/guide/topics/resources/drawable-resource-->
+    <item
+        android:drawable="@drawable/hillary_small"
+        android:id="@+id/hillary_icon"
+        android:height="48dp"
+        android:width="44dp"
+        />
+</layer-list>
+

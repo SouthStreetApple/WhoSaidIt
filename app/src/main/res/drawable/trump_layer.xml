@@ -1,0 +1,11 @@
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!--https://developer.android.com/guide/topics/resources/drawable-resource-->
+    <item
+        android:drawable="@drawable/trump"
+        android:id="@+id/trump_icon"
+        android:height="50dp"
+        android:width="58dp"
+        />
+</layer-list>
+

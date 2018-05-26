@@ -99,15 +99,18 @@
             />
 
         <Button
-        android:id="@+id/check_button_bonus"
-        android:padding="18dp"
-        android:textSize="16sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:text="@string/submit_button"
-        android:onClick="displayResult"
+            android:id="@+id/check_button_bonus"
+            android:padding="18dp"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/submit_button"
+            android:onClick="displayResult"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/hillary_layer"
+            android:drawableRight="@drawable/trump_layer"
         />
 
         <LinearLayout
@@ -116,16 +119,16 @@
             android:layout_weight="4"
             android:orientation="vertical">
 
-                <ImageView
+                <!--ImageView
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight=".5"
 
                     android:scaleType="centerInside"
                     android:layout_gravity="fill_vertical"
-                    />
+                    /-->
 
-                <ImageView
+                <!--ImageView
                     android:id="@+id/image_donald_hillary"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
@@ -133,7 +136,7 @@
                     android:src="@drawable/combined"
                     android:scaleType="fitEnd"
                     android:layout_gravity="fill_vertical"
-                    />
+                    /-->
 
         </LinearLayout>
     </LinearLayout>

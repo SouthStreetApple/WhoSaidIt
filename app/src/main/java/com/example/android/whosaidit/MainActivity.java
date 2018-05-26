@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.icu.util.DateInterval;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -31,6 +32,10 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Layout Variable
+     */
+    LinearLayout currentLayout;
     /**
      * Load some values from Strings file
      */
@@ -91,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     public void startQuiz(View view){
         /**
          * Hide the keyboard
@@ -122,11 +125,20 @@ public class MainActivity extends AppCompatActivity {
          * The below link is where we got the cool inflate trick below which allows us to insert the layout into our main_layout
          * https://stackoverflow.com/questions/16812276/how-to-initialize-a-ui-component-from-a-layout-file#16812431
          */
-        LinearLayout welcome_layout = (LinearLayout) findViewById(R.id.welcome_layout);
+        /*LinearLayout welcome_layout = (LinearLayout) findViewById(R.id.welcome_layout);
         welcome_layout.setVisibility(View.GONE);
         LinearLayout main_layout = (LinearLayout) findViewById(R.id.main_layout);
         main_layout.removeAllViewsInLayout();
         LinearLayout quiz_layout = (LinearLayout)getLayoutInflater().inflate(R.layout.quiz,main_layout,true);
+        //Sets currentLayout to the newly changed main_layout, so this might* not reload view.
+        currentLayout = main_layout;*/
+
+        /**
+         * Using intents to create new window.
+         */
+        Intent i = new Intent(this, Quiz.class);
+        this.startActivity(i);
+
 
         /**
          *
