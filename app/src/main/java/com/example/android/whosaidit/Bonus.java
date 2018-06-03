@@ -13,9 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 public class Bonus extends Activity {
@@ -28,16 +25,16 @@ public class Bonus extends Activity {
     Button checkButtonBonus;
 
     /**
-     *Score from first round
+     * Score from first round
      */
     float firstRoundScore = 0;
 
     /**
-     *Holds our start time
+     * Holds our start time
      */
     Long startTime;
     /**
-     *Holds the users name
+     * Holds the users name
      */
     String userName;
 
@@ -72,14 +69,14 @@ public class Bonus extends Activity {
         });
     }
 
-    public void displayResult(View view){
+    public void displayResult(View view) {
         view.setEnabled(false);
         /**
          * Hide the keyboard
          *https://stackoverflow.com/questions/1109022/close-hide-the-android-soft-keyboard
          */
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
         /*
@@ -91,17 +88,17 @@ public class Bonus extends Activity {
         CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
         CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
         CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
-        if (checkBox1.isChecked() == getResources().getBoolean(R.bool.boptiona1) && checkBox2.isChecked() == getResources().getBoolean(R.bool.boptiona2) && checkBox3.isChecked() == getResources().getBoolean(R.bool.boptiona3)){
-            firstRoundScore = firstRoundScore +5;
+        if (checkBox1.isChecked() == getResources().getBoolean(R.bool.boptiona1) && checkBox2.isChecked() == getResources().getBoolean(R.bool.boptiona2) && checkBox3.isChecked() == getResources().getBoolean(R.bool.boptiona3)) {
+            firstRoundScore = firstRoundScore + 5;
         }
         //Bonus Question 2
         EditText bonusAnswer2 = (EditText) findViewById(R.id.bonus_answer_2);
         if (bonusAnswer2.getText().toString().equalsIgnoreCase(getString(R.string.bqa2).toLowerCase())) {
-            firstRoundScore = firstRoundScore +5;
+            firstRoundScore = firstRoundScore + 5;
         }
         /*This calculates the score based on percentage the user got right divided by total number of questions
-         *then it displays in a toast the result in a nice simple message.  Also tells the user how many
-         * seconds it took!
+         *then it displays in a toast the result in a nice simple message (also takes into account
+         * bonus points.  Also tells the user how many seconds it took!
          */
         Long endTime;
         endTime = ZonedDateTime.now().toEpochSecond();
@@ -109,8 +106,50 @@ public class Bonus extends Activity {
         String seconds = String.valueOf(duration);
         TextView name = (TextView) findViewById(R.id.name_input);
         String resultText = "You finished! You scored " + firstRoundScore + "% in " + seconds + " seconds, congratulations " + userName + "!";
-        Toast resultToast = Toast.makeText(this,resultText,Toast.LENGTH_LONG);
+        Toast resultToast = Toast.makeText(this, resultText, Toast.LENGTH_LONG);
         resultToast.show();
+    }
+
+    /**
+     * This is where is make sure to 'save' our current variables and interface look so that
+     * it reloads correctly on screen rotate.
+     * Idea from: Miriam E. (ABND) (Slack)
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //Save the disabled state of the check_answer button
+        Button check_answer = (Button) findViewById(R.id.check_button_bonus);
+        outState.putBoolean("check_enabled",check_answer.isEnabled());
+        //Save the state of the checkboxes
+        CheckBox check_box_1 = (CheckBox) findViewById(R.id.checkbox1);
+        outState.putBoolean("checkBox1",check_box_1.isChecked());
+        CheckBox check_box_2 = (CheckBox) findViewById(R.id.checkbox2);
+        outState.putBoolean("checkBox2",check_box_2.isChecked());
+        CheckBox check_box_3 = (CheckBox) findViewById(R.id.checkbox3);
+        outState.putBoolean("checkBox3",check_box_3.isChecked());
+        //Save the state of the EditText
+        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2);
+        outState.putString("fillInTheBlank",fillInTheBlank.getText().toString());
+    }
+    /**
+     * Loads the saved state
+     * Idea from: Miriam E. (ABND) (Slack)
+     */
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        //Load state of the check_answer button
+        Button check_answer = (Button) findViewById(R.id.check_button_bonus);
+        check_answer.setEnabled(savedInstanceState.getBoolean("check_enabled"));
+        //Load the state of the checkboxes
+        CheckBox check_box_1 = (CheckBox) findViewById(R.id.checkbox1);
+        check_box_1.setChecked(savedInstanceState.getBoolean("checkBox1"));
+        CheckBox check_box_2 = (CheckBox) findViewById(R.id.checkbox2);
+        check_box_2.setChecked(savedInstanceState.getBoolean("checkBox2"));
+        CheckBox check_box_3 = (CheckBox) findViewById(R.id.checkbox3);
+        check_box_3.setChecked(savedInstanceState.getBoolean("checkBox3"));
+        //Load the state of the EditText
+        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2);
+        fillInTheBlank.setText(savedInstanceState.getString("fillInTheBlank"));
     }
 
 }

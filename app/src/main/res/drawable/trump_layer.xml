@@ -1,6 +1,8 @@
 <layer-list
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <!--https://developer.android.com/guide/topics/resources/drawable-resource-->
+    <!--Let's us create a smaller version of an image from a larger version so we can re-use them in
+    different ways-->
     <item
         android:drawable="@drawable/trump"
         android:id="@+id/trump_icon"

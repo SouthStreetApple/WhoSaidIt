@@ -82,16 +82,17 @@ public class Quiz extends Activity {
         outState.putString("currentAnswer", currentAnswer);
         outState.putLong("startTime", startTime);
         outState.putString("userName", userName);
-        //Saves button text
+        //Saves button text from current view as this is dynamic
         Button checkButton = (Button) findViewById(R.id.check_button);
         outState.putString("buttonText", checkButton.getText().toString());
-        //Saves answer text
+        //Saves answer text from current view as this is dynamic
         TextView answerResult = (TextView) findViewById(R.id.answer_result);
         outState.putString("answerResult", answerResult.getText().toString());
     }
 
     /**
      * Loads the saved state
+     * Idea from: Miriam E. (ABND) (Slack)
      */
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -107,7 +108,7 @@ public class Quiz extends Activity {
         //Load Questions into memory
         loadQuestions();
         /**
-         * Load interface information.  Supposedly this is suppose to be persistent is the
+         * Load interface information.  Supposedly this is suppose to be persistent if the
          * controls (views) have ID's but in practice this seems not to be the case.
          */
         //Run setQuestion(questionIndex); This will load the question based on the index, and the

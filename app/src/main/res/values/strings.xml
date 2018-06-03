@@ -1,12 +1,11 @@
-<!DOCTYPE resources [
-    <!ENTITY number_of_questions "2">
-    ]>
-    <!--You can customize the number of questions (except bonus round) by changing the value above, 1-20, or more if you added more-->
+<!DOCTYPE resources [<!ENTITY number_of_questions "1">]>
+<!--You can customize the number of questions (except bonus round) by changing the value above, 1-20, or more if you added more-->
+<!--Currently it is set to 10 questions to comply with the project specifications-->
 
-    <resources>
+<resources>
 
-        <!--Number of Questions - For First Round-->
-        <string name="total_questions">&number_of_questions;</string>
+    <!--Number of Questions - For First Round-->
+    <string name="total_questions">&number_of_questions;</string>
 
     <!--App Welcome Screen-->
 
@@ -15,6 +14,7 @@
     <string name="amount_questions">The quiz will have &number_of_questions; questions!</string>
     <string name="start_button">Let\'s get started</string>
     <string name="disclaimer">*The quiz may be timed!</string>
+    <string name="user_name_hint">Enter Your Name Here</string>
 
     <!--First Round - Quiz Screen-->
     <string name="quiz_which_question">1/&number_of_questions;</string>
@@ -22,6 +22,9 @@
     <string name="submit_button_next">Next Question</string>
     <string name="answer_result_correct">That is correct!</string>
     <string name="answer_result_incorrect">That is INCORRECT!</string>
+    <string name="example_quote">This is some sample text to represent a quote that will display about the candidate. Good luck!</string>
+    <string name="example_candidate1">Hillary Clinton</string>
+    <string name="example_candidate2">Donald Trump</string>
 
     <!--First Round - Quiz Info-->
     <string name="option1">Hillary Clinton</string>
@@ -89,20 +92,22 @@
     <string name="a20">Donald Trump</string>
 
     <!--Bonus Round Questions-->
-    <!-- bq1 bonus question 1-->
+    <!--bonus question 1 (bq1)-->
     <string name="bq1">Who said Make America Great Again?</string>
+    <!--Bonus question 1 options-->
     <string name="boption1">Donald Trump</string>
     <string name="boption2">Hillary Clinton</string>
     <string name="boption3">Ronald Reagan</string>
+    <!--Bonus question 1 answers-->
     <bool name="boptiona1">true</bool>
     <bool name="boptiona2">true</bool>
     <bool name="boptiona3">true</bool>
 
 
-    <!-- bq2 bonus question 2 (Fill in the blank)-->
+    <!-- Bonus question 2 (bq2) (Fill in the blank)-->
     <string name="bq2">Who used the term Bernie Bro\'s?</string>
+    <!--Bonus question 2 answer-->
     <string name="bqa2">Hillary Clinton</string>
-
 
 
 </resources>
