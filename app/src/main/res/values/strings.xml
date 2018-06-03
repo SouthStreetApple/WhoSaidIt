@@ -1,5 +1,5 @@
 <!DOCTYPE resources [
-    <!ENTITY number_of_questions "20">
+    <!ENTITY number_of_questions "2">
     ]>
     <!--You can customize the number of questions (except bonus round) by changing the value above, 1-20, or more if you added more-->
 
@@ -99,7 +99,7 @@
     <bool name="boptiona3">true</bool>
 
 
-    <!-- bq2 bonus question 2-->
+    <!-- bq2 bonus question 2 (Fill in the blank)-->
     <string name="bq2">Who used the term Bernie Bro\'s?</string>
     <string name="bqa2">Hillary Clinton</string>
 
