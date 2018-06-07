@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <LinearLayout
+    <!--Stop EditText from having focus on startup-->
+    <!--URL: https://stackoverflow.com/a/1612017/9849310-->
+    <!-- focusable / focusableInTouchMode -->
+    <!--This first LinearLayout is needed as ScrollView can ONLY have one (1) child-->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/quiz_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/quiz_quote"
+            android:id="@+id/quiz_quote_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -35,7 +40,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/option1"
+                    android:id="@+id/question_option1_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -43,7 +48,7 @@
                     android:hint="@string/example_candidate1" />
 
                 <RadioButton
-                    android:id="@+id/option2"
+                    android:id="@+id/question_option2_rb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -53,7 +58,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/question_count"
+            android:id="@+id/question_count_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -71,21 +76,19 @@
             android:drawablePadding="10dp"
             android:drawableRight="@drawable/trump_layer"
             android:gravity="center"
-            android:hint="SUBMIT"
             android:onClick="nextQuestion"
             android:padding="18dp"
             android:text="@string/submit_button"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/answer_result"
+            android:id="@+id/answer_result_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="18dp"
             android:text=""
             android:textSize="24sp" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-
-    >
-
-    <LinearLayout
+    android:layout_height="match_parent">
+    <!--Stop EditText from having focus on startup-->
+    <!--URL: https://stackoverflow.com/a/1612017/9849310-->
+    <!-- focusable / focusableInTouchMode -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/bonus_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/bonus_question_title"
+            android:id="@+id/bonus_question_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:hint=""
             android:padding="8dp"
-            android:text="Bonus Round!"
+            android:text="@string/bonus_round_title"
             android:textAllCaps="true"
             android:textColor="#000000"
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/bonus_question_1"
+            android:id="@+id/bonus_question_1_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -44,7 +45,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkbox1"
+                android:id="@+id/bonus_checkbox1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -52,7 +53,7 @@
                 android:text="@string/boption1" />
 
             <CheckBox
-                android:id="@+id/checkbox2"
+                android:id="@+id/bonus_checkbox2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -60,7 +61,7 @@
                 android:text="@string/boption2" />
 
             <CheckBox
-                android:id="@+id/checkbox3"
+                android:id="@+id/bonus_checkbox3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -70,7 +71,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/bonus_question_2"
+            android:id="@+id/bonus_question_2_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -82,7 +83,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/bonus_answer_2"
+            android:id="@+id/bonus_answer_2_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
@@ -91,7 +92,6 @@
             android:imeOptions="actionDone"
             android:inputType="text"
             android:maxLines="1"
-
             />
 
         <Button
@@ -108,4 +108,4 @@
             android:text="@string/submit_button"
             android:textSize="16sp" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

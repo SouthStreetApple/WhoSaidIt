@@ -86,7 +86,7 @@ public class Quiz extends Activity {
         Button checkButton = (Button) findViewById(R.id.check_button);
         outState.putString("buttonText", checkButton.getText().toString());
         //Saves answer text from current view as this is dynamic
-        TextView answerResult = (TextView) findViewById(R.id.answer_result);
+        TextView answerResult = (TextView) findViewById(R.id.answer_result_tv);
         outState.putString("answerResult", answerResult.getText().toString());
     }
 
@@ -118,10 +118,10 @@ public class Quiz extends Activity {
         Button checkButton = (Button) findViewById(R.id.check_button);
         checkButton.setText(savedInstanceState.getString("buttonText"));
         //If they already checked the answer, we need to make sure if the result is showing.
-        TextView answerResult = (TextView) findViewById(R.id.answer_result);
+        TextView answerResult = (TextView) findViewById(R.id.answer_result_tv);
         answerResult.setText(savedInstanceState.getString("answerResult"));
         //Make sure the question counter is correct
-        TextView whichQuestion = (TextView) findViewById(R.id.question_count);
+        TextView whichQuestion = (TextView) findViewById(R.id.question_count_tv);
         whichQuestion.setText((questionIndex + 1) + "/" + numberOfQuestions);
     }
 
@@ -131,11 +131,11 @@ public class Quiz extends Activity {
         currentAnswer = questions[i].answer;
         questionIndex = i;
         //change question text on the view
-        TextView t = (TextView) findViewById(R.id.quiz_quote);
+        TextView t = (TextView) findViewById(R.id.quiz_quote_tv);
         t.setText("''" + currentQuestion + "''");
         //Change answer options
-        RadioButton option1 = (RadioButton) findViewById(R.id.option1);
-        RadioButton option2 = (RadioButton) findViewById(R.id.option2);
+        RadioButton option1 = (RadioButton) findViewById(R.id.question_option1_rb);
+        RadioButton option2 = (RadioButton) findViewById(R.id.question_option2_rb);
         option1.setText(getString(R.string.option1).toString());
         option2.setText(getString(R.string.option2).toString());
     }
@@ -149,7 +149,7 @@ public class Quiz extends Activity {
          */
         Button checkButton = (Button) findViewById(R.id.check_button);
         String buttonText = checkButton.getText().toString();
-        TextView answerResult = (TextView) findViewById(R.id.answer_result);
+        TextView answerResult = (TextView) findViewById(R.id.answer_result_tv);
         RadioGroup possibleAnswers = (RadioGroup) findViewById(R.id.possible_answers);
         //Check to make sure they selected an answer
         if (possibleAnswers.getCheckedRadioButtonId() == -1) {
@@ -198,7 +198,7 @@ public class Quiz extends Activity {
                 //Uncheck the RadioButton
                 possibleAnswers.clearCheck();
                 //Update x/Total question count
-                TextView whichQuestion = (TextView) findViewById(R.id.question_count);
+                TextView whichQuestion = (TextView) findViewById(R.id.question_count_tv);
                 whichQuestion.setText((questionIndex + 1) + "/" + numberOfQuestions);
             }
         }

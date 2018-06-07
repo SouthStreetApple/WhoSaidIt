@@ -30,7 +30,6 @@
     <string name="option1">Hillary Clinton</string>
     <string name="option2">Donald Trump</string>
 
-
     <string name="q1">Independent experts have looked at what I\'ve proposed and looked at what Donald\'s proposed, and basically they\'ve said this, that if his tax plan, which would blow up the debt by over $5 trillion and would in some instances disadvantage middle-class families compared to the wealthy, were to go into effect, we would lose 3.5 million jobs and maybe have another recession</string>
     <string name="a1">Hillary Clinton</string>
 
@@ -91,6 +90,8 @@
     <string name="q20">Well, President Obama and Secretary Clinton created a vacuum the way they got out of Iraq, because they got out — what, they shouldn\'t have been in, but once they got in, the way they got out was a disaster,</string>
     <string name="a20">Donald Trump</string>
 
+    <!--Bonus Round-->
+    <string name="bonus_round_title">Bonus Round!</string>
     <!--Bonus Round Questions-->
     <!--bonus question 1 (bq1)-->
     <string name="bq1">Who said Make America Great Again?</string>
@@ -102,12 +103,8 @@
     <bool name="boptiona1">true</bool>
     <bool name="boptiona2">true</bool>
     <bool name="boptiona3">true</bool>
-
-
     <!-- Bonus question 2 (bq2) (Fill in the blank)-->
     <string name="bq2">Who used the term Bernie Bro\'s?</string>
     <!--Bonus question 2 answer-->
     <string name="bqa2">Hillary Clinton</string>
-
-
 </resources>

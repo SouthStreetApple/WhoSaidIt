@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Define two variables that we will need to reference a couple times throughout this code.
          */
-        nameInput = (EditText) findViewById(R.id.name_input);
-        startQuizButton = (Button) findViewById(R.id.start_quiz);
+        nameInput = (EditText) findViewById(R.id.name_input_et);
+        startQuizButton = (Button) findViewById(R.id.start_quiz_button);
         /**
          * Create hook for 'Enter' on name_input, on welcome layout
          */

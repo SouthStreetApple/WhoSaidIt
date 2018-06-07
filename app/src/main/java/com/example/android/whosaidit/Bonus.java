@@ -56,7 +56,7 @@ public class Bonus extends Activity {
         /**
          * Create hook for 'Enter' on bonus_answer_2, on bonus layout
          */
-        bonusQuestion2 = (EditText) findViewById(R.id.bonus_answer_2);
+        bonusQuestion2 = (EditText) findViewById(R.id.bonus_answer_2_et);
         checkButtonBonus = (Button) findViewById(R.id.check_button_bonus);
         bonusQuestion2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -85,14 +85,14 @@ public class Bonus extends Activity {
          *
          */
         //Bonus Question 1
-        CheckBox checkBox1 = (CheckBox) findViewById(R.id.checkbox1);
-        CheckBox checkBox2 = (CheckBox) findViewById(R.id.checkbox2);
-        CheckBox checkBox3 = (CheckBox) findViewById(R.id.checkbox3);
+        CheckBox checkBox1 = (CheckBox) findViewById(R.id.bonus_checkbox1);
+        CheckBox checkBox2 = (CheckBox) findViewById(R.id.bonus_checkbox2);
+        CheckBox checkBox3 = (CheckBox) findViewById(R.id.bonus_checkbox3);
         if (checkBox1.isChecked() == getResources().getBoolean(R.bool.boptiona1) && checkBox2.isChecked() == getResources().getBoolean(R.bool.boptiona2) && checkBox3.isChecked() == getResources().getBoolean(R.bool.boptiona3)) {
             firstRoundScore = firstRoundScore + 5;
         }
         //Bonus Question 2
-        EditText bonusAnswer2 = (EditText) findViewById(R.id.bonus_answer_2);
+        EditText bonusAnswer2 = (EditText) findViewById(R.id.bonus_answer_2_et);
         if (bonusAnswer2.getText().toString().equalsIgnoreCase(getString(R.string.bqa2).toLowerCase())) {
             firstRoundScore = firstRoundScore + 5;
         }
@@ -104,7 +104,6 @@ public class Bonus extends Activity {
         endTime = ZonedDateTime.now().toEpochSecond();
         Long duration = (endTime - startTime);
         String seconds = String.valueOf(duration);
-        TextView name = (TextView) findViewById(R.id.name_input);
         String resultText = "You finished! You scored " + firstRoundScore + "% in " + seconds + " seconds, congratulations " + userName + "!";
         Toast resultToast = Toast.makeText(this, resultText, Toast.LENGTH_LONG);
         resultToast.show();
@@ -121,14 +120,14 @@ public class Bonus extends Activity {
         Button check_answer = (Button) findViewById(R.id.check_button_bonus);
         outState.putBoolean("check_enabled",check_answer.isEnabled());
         //Save the state of the checkboxes
-        CheckBox check_box_1 = (CheckBox) findViewById(R.id.checkbox1);
+        CheckBox check_box_1 = (CheckBox) findViewById(R.id.bonus_checkbox1);
         outState.putBoolean("checkBox1",check_box_1.isChecked());
-        CheckBox check_box_2 = (CheckBox) findViewById(R.id.checkbox2);
+        CheckBox check_box_2 = (CheckBox) findViewById(R.id.bonus_checkbox2);
         outState.putBoolean("checkBox2",check_box_2.isChecked());
-        CheckBox check_box_3 = (CheckBox) findViewById(R.id.checkbox3);
+        CheckBox check_box_3 = (CheckBox) findViewById(R.id.bonus_checkbox3);
         outState.putBoolean("checkBox3",check_box_3.isChecked());
         //Save the state of the EditText
-        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2);
+        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2_et);
         outState.putString("fillInTheBlank",fillInTheBlank.getText().toString());
     }
     /**
@@ -141,14 +140,14 @@ public class Bonus extends Activity {
         Button check_answer = (Button) findViewById(R.id.check_button_bonus);
         check_answer.setEnabled(savedInstanceState.getBoolean("check_enabled"));
         //Load the state of the checkboxes
-        CheckBox check_box_1 = (CheckBox) findViewById(R.id.checkbox1);
+        CheckBox check_box_1 = (CheckBox) findViewById(R.id.bonus_checkbox1);
         check_box_1.setChecked(savedInstanceState.getBoolean("checkBox1"));
-        CheckBox check_box_2 = (CheckBox) findViewById(R.id.checkbox2);
+        CheckBox check_box_2 = (CheckBox) findViewById(R.id.bonus_checkbox2);
         check_box_2.setChecked(savedInstanceState.getBoolean("checkBox2"));
-        CheckBox check_box_3 = (CheckBox) findViewById(R.id.checkbox3);
+        CheckBox check_box_3 = (CheckBox) findViewById(R.id.bonus_checkbox3);
         check_box_3.setChecked(savedInstanceState.getBoolean("checkBox3"));
         //Load the state of the EditText
-        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2);
+        EditText fillInTheBlank = (EditText) findViewById(R.id.bonus_answer_2_et);
         fillInTheBlank.setText(savedInstanceState.getString("fillInTheBlank"));
     }
 

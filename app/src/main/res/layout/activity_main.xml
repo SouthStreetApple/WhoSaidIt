@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/welcome_layout"
+    android:layout_height="match_parent">
+    <!--Stop EditText from having focus on startup-->
+    <!--URL: https://stackoverflow.com/a/1612017/9849310-->
+    <!-- focusable / focusableInTouchMode -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <TextView
@@ -31,7 +33,7 @@
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/name_input"
+            android:id="@+id/name_input_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -45,7 +47,7 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/start_quiz"
+            android:id="@+id/start_quiz_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -61,11 +63,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
             android:padding="18dp"
             android:text="@string/disclaimer"
             android:textSize="12sp" />
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
