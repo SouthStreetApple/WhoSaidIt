@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 
 public class Quiz extends Activity {
-
     /**
      * Current Question and Answer Variables
      */
@@ -246,5 +245,4 @@ public class Quiz extends Activity {
         }
         Log.e("TOTAL", String.valueOf(questions.length));
     }
-
 }

@@ -17,8 +17,6 @@ import java.time.ZonedDateTime;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
     /**
      * Variables that allow us to capture enter or GO in  the keyboard and a button click.
      * Welcome Screen
@@ -52,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
     }
 
     public void startQuiz(View view) {
@@ -83,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("userName", nameInput.getText().toString());
         this.startActivity(i);
     }
-
-
 }
 
 
