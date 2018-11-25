@@ -5,7 +5,7 @@
 
 ## Walkthrough
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Ks7w89kL7rc" target="_blank"><img src="https://github.com/SouthStreetApple/WhoSaidIt/blob/master/youtubescreen.png" 
-alt="TourIt - App Demo" width="100%" height="100%" border="10" /></a>
+alt="TourIt - App Demo" width="75%" height="75%" border="10" /></a>
 
 ## Screenshots
 ![TourIt](https://github.com/SouthStreetApple/WhoSaidIt/blob/master/WhoSaidIt.png)
